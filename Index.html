@@ -4,171 +4,287 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tipos de Almacenamiento de Datos</title>
-  <!-- Tailwind CSS vía CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-800">
-
-  <!-- Encabezado -->
-  <header class="bg-blue-600 text-white p-6 shadow-md">
-    <h1 class="text-2xl font-bold text-center">Tipos de Almacenamiento de Datos</h1>
-    <p class="text-center mt-2">Un recurso educativo interactivo</p>
+  <header class="bg-blue-600 text-white p-6 text-center">
+    <h1 class="text-3xl font-bold">Tipos de Almacenamiento de Datos</h1>
   </header>
 
-  <main class="max-w-5xl mx-auto p-6 space-y-12">
+  <main class="max-w-6xl mx-auto p-6 space-y-10">
 
-    <!-- Sección: Filtro -->
+    <!-- Filtro -->
     <section>
-      <h2 class="text-xl font-semibold mb-4">🔍 Filtrar Tipos de Almacenamiento</h2>
-      <input 
-        type="text" 
-        id="filterInput" 
-        placeholder="Escribe para filtrar (ej: SSD, nube...)" 
-        class="w-full p-2 border rounded"
-      >
+      <h2 class="text-xl font-semibold mb-2">Filtro</h2>
+      <input id="filterInput" type="text" placeholder="Filtrar por tipo o uso..."
+             class="w-full p-2 border rounded">
     </section>
 
-    <!-- Sección: Tarjetas -->
+    <!-- Tarjetas -->
     <section>
-      <h2 class="text-xl font-semibold mb-4">📦 Tarjetas Informativas</h2>
-      <div id="cardsContainer" class="grid md:grid-cols-2 gap-6">
-        <!-- Ejemplo de tarjeta -->
-        <div class="card bg-white rounded-2xl shadow p-4" data-name="Disco Duro HDD">
-          <h3 class="font-bold text-lg">Disco Duro (HDD)</h3>
-          <p class="text-sm">Almacenamiento magnético, gran capacidad pero menor velocidad.</p>
-        </div>
-        <div class="card bg-white rounded-2xl shadow p-4" data-name="Unidad de Estado Sólido SSD">
-          <h3 class="font-bold text-lg">Unidad de Estado Sólido (SSD)</h3>
-          <p class="text-sm">Más rápida y resistente, menor capacidad en comparación con HDD.</p>
-        </div>
-        <div class="card bg-white rounded-2xl shadow p-4" data-name="Memoria RAM">
-          <h3 class="font-bold text-lg">Memoria RAM</h3>
-          <p class="text-sm">Almacenamiento temporal y volátil usado para procesos activos.</p>
-        </div>
-        <div class="card bg-white rounded-2xl shadow p-4" data-name="Almacenamiento en la Nube">
-          <h3 class="font-bold text-lg">Almacenamiento en la Nube</h3>
-          <p class="text-sm">Accesible desde internet, flexible y escalable.</p>
-        </div>
-      </div>
+      <h2 class="text-xl font-semibold mb-4">Tarjetas</h2>
+      <div id="cardsContainer" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
     </section>
 
-    <!-- Sección: Tabla comparativa -->
+    <!-- Tabla Comparativa -->
     <section>
-      <h2 class="text-xl font-semibold mb-4">📊 Tabla Comparativa</h2>
+      <h2 class="text-xl font-semibold mb-4">Tabla Comparativa</h2>
       <div class="overflow-x-auto">
-        <table class="min-w-full border border-gray-300 text-sm">
-          <thead class="bg-gray-100">
-            <tr>
-              <th class="border px-4 py-2">Tipo</th>
-              <th class="border px-4 py-2">Velocidad</th>
-              <th class="border px-4 py-2">Capacidad</th>
-              <th class="border px-4 py-2">Costo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="border px-4 py-2">HDD</td>
-              <td class="border px-4 py-2">Baja</td>
-              <td class="border px-4 py-2">Alta</td>
-              <td class="border px-4 py-2">Bajo</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">SSD</td>
-              <td class="border px-4 py-2">Alta</td>
-              <td class="border px-4 py-2">Media</td>
-              <td class="border px-4 py-2">Medio/Alto</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">RAM</td>
-              <td class="border px-4 py-2">Muy alta</td>
-              <td class="border px-4 py-2">Baja</td>
-              <td class="border px-4 py-2">Medio</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">Nube</td>
-              <td class="border px-4 py-2">Variable</td>
-              <td class="border px-4 py-2">Escalable</td>
-              <td class="border px-4 py-2">Por uso</td>
-            </tr>
-          </tbody>
-        </table>
+        <table id="tablaComparativa" class="min-w-full border text-sm"></table>
       </div>
     </section>
 
-    <!-- Sección: Glosario -->
+    <!-- Glosario -->
     <section>
-      <h2 class="text-xl font-semibold mb-4">📖 Glosario</h2>
-      <dl class="space-y-2">
-        <div>
-          <dt class="font-bold">HDD:</dt>
-          <dd>Disco duro mecánico basado en platos magnéticos.</dd>
-        </div>
-        <div>
-          <dt class="font-bold">SSD:</dt>
-          <dd>Unidad de estado sólido basada en memoria flash.</dd>
-        </div>
-        <div>
-          <dt class="font-bold">RAM:</dt>
-          <dd>Memoria de acceso aleatorio, rápida y volátil.</dd>
-        </div>
-        <div>
-          <dt class="font-bold">Nube:</dt>
-          <dd>Almacenamiento remoto accesible por internet.</dd>
-        </div>
-      </dl>
+      <h2 class="text-xl font-semibold mb-4">Glosario</h2>
+      <ul id="glosarioList" class="list-disc list-inside space-y-1"></ul>
     </section>
 
-    <!-- Sección: Quiz -->
+    <!-- Quiz -->
     <section>
-      <h2 class="text-xl font-semibold mb-4">📝 Quiz rápido</h2>
-      <p class="mb-2">Pregunta: ¿Qué tipo de almacenamiento es volátil y se borra al apagar el equipo?</p>
-      <button 
-        onclick="checkAnswer('HDD')" 
-        class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 mr-2">HDD</button>
-      <button 
-        onclick="checkAnswer('SSD')" 
-        class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 mr-2">SSD</button>
-      <button 
-        onclick="checkAnswer('RAM')" 
-        class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 mr-2">RAM</button>
-      <button 
-        onclick="checkAnswer('Nube')" 
-        class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Nube</button>
-      <p id="quizResult" class="mt-4 font-semibold"></p>
+      <h2 class="text-xl font-semibold mb-4">Quiz</h2>
+      <div id="quizContainer" class="space-y-6"></div>
     </section>
 
   </main>
 
-  <!-- Script interactividad -->
+  <!-- Datos y funciones JS -->
   <script>
-    // Filtro de tarjetas
-    const filterInput = document.getElementById("filterInput");
-    const cards = document.querySelectorAll(".card");
-
-    filterInput.addEventListener("input", () => {
-      const value = filterInput.value.toLowerCase();
-      cards.forEach(card => {
-        const name = card.dataset.name.toLowerCase();
-        card.style.display = name.includes(value) ? "block" : "none";
-      });
-    });
-
-    // Quiz
-    function checkAnswer(answer) {
-      const result = document.getElementById("quizResult");
-      if (answer === "RAM") {
-        result.textContent = "✅ Correcto: La RAM es volátil.";
-        result.className = "mt-4 font-semibold text-green-600";
-      } else {
-        result.textContent = "❌ Incorrecto. Intenta de nuevo.";
-        result.className = "mt-4 font-semibold text-red-600";
+    // ==============================
+    // Datos de ejemplo
+    // ==============================
+    const items = [
+      {
+        tipo: "Memoria RAM",
+        uso: "Ejecución de procesos en tiempo real",
+        ejemplos: "DDR4, DDR5",
+        latencia: "Muy baja (nanosegundos)",
+        rendimiento: "Muy alto",
+        durabilidad: "Volátil",
+        escalabilidad: "Limitada por hardware",
+        coste: "Medio/Alto",
+        desc: "Memoria principal del sistema, se borra al apagar."
+      },
+      {
+        tipo: "SSD NVMe",
+        uso: "Almacenamiento de alto rendimiento",
+        ejemplos: "Samsung 980 Pro, WD Black",
+        latencia: "Baja (decenas de microsegundos)",
+        rendimiento: "Muy alto (IOPS elevadas)",
+        durabilidad: "Alta",
+        escalabilidad: "Limitada al dispositivo físico",
+        coste: "Alto",
+        desc: "Unidad de estado sólido conectada vía NVMe, optimizada para velocidad."
+      },
+      {
+        tipo: "Disco Duro (HDD)",
+        uso: "Almacenamiento masivo de bajo coste",
+        ejemplos: "Seagate Barracuda, WD Blue",
+        latencia: "Alta (milisegundos)",
+        rendimiento: "Bajo/Medio",
+        durabilidad: "Media (mecánico, desgaste)",
+        escalabilidad: "Alta (capacidad en TBs)",
+        coste: "Bajo",
+        desc: "Dispositivo magnético mecánico con gran capacidad."
+      },
+      {
+        tipo: "NAS (Network Attached Storage)",
+        uso: "Almacenamiento compartido en red local",
+        ejemplos: "Synology, QNAP",
+        latencia: "Media (dependiente de red LAN)",
+        rendimiento: "Medio",
+        durabilidad: "Alta con redundancia",
+        escalabilidad: "Moderada (discos adicionales)",
+        coste: "Medio",
+        desc: "Servidor de almacenamiento dedicado accesible en red."
+      },
+      {
+        tipo: "SAN (Storage Area Network)",
+        uso: "Almacenamiento de alto rendimiento en data centers",
+        ejemplos: "Dell EMC PowerMax, NetApp ONTAP",
+        latencia: "Baja",
+        rendimiento: "Muy alto",
+        durabilidad: "Alta",
+        escalabilidad: "Muy alta",
+        coste: "Muy alto",
+        desc: "Red especializada en almacenamiento para empresas."
+      },
+      {
+        tipo: "Almacenamiento de objetos en la nube",
+        uso: "Guardar grandes volúmenes de datos no estructurados",
+        ejemplos: "Amazon S3, Google Cloud Storage",
+        latencia: "Variable (red)",
+        rendimiento: "Escalable",
+        durabilidad: "Muy alta (réplicas múltiples)",
+        escalabilidad: "Prácticamente ilimitada",
+        coste: "Por uso, económico a gran escala",
+        desc: "Modelo basado en objetos, ideal para copias de seguridad y archivos."
+      },
+      {
+        tipo: "Almacenamiento en bloque en la nube",
+        uso: "Volúmenes persistentes para máquinas virtuales",
+        ejemplos: "Amazon EBS, Azure Disk Storage",
+        latencia: "Baja/Media",
+        rendimiento: "Alto",
+        durabilidad: "Alta",
+        escalabilidad: "Flexible por volumen",
+        coste: "Por uso, superior a objetos",
+        desc: "Ofrece bloques de disco virtuales similares a los discos físicos."
+      },
+      {
+        tipo: "Base de datos relacional",
+        uso: "Gestión de datos estructurados con SQL",
+        ejemplos: "MySQL, PostgreSQL, Oracle DB",
+        latencia: "Media",
+        rendimiento: "Alto para transacciones",
+        durabilidad: "Alta (con backups)",
+        escalabilidad: "Vertical principalmente",
+        coste: "Variable",
+        desc: "Modelo tabular con integridad ACID."
+      },
+      {
+        tipo: "Base de datos NoSQL clave-valor",
+        uso: "Datos no estructurados y consultas rápidas",
+        ejemplos: "Redis, DynamoDB",
+        latencia: "Muy baja",
+        rendimiento: "Muy alto",
+        durabilidad: "Depende de la implementación",
+        escalabilidad: "Horizontal",
+        coste: "Variable",
+        desc: "Almacenamiento flexible basado en pares clave-valor."
+      },
+      {
+        tipo: "Cinta / Archivado",
+        uso: "Respaldo y archivado a largo plazo",
+        ejemplos: "LTO Ultrium",
+        latencia: "Muy alta (acceso secuencial)",
+        rendimiento: "Bajo",
+        durabilidad: "Muy alta si se conserva bien",
+        escalabilidad: "Alta (múltiples cintas)",
+        coste: "Muy bajo",
+        desc: "Soporte magnético para almacenamiento de largo plazo."
       }
-    }
-  </script>
+    ];
 
-  <!-- Pie de página -->
-  <footer class="bg-blue-600 text-white text-center p-4 mt-12">
-    <p>© 2025 Recurso Educativo sobre Almacenamiento</p>
-  </footer>
-</body>
-</html>
+    const glosario = [
+      { termino: "Latencia", definicion: "Tiempo que tarda en responder un sistema de almacenamiento." },
+      { termino: "IOPS", definicion: "Operaciones de Entrada/Salida por segundo, métrica de rendimiento." },
+      { termino: "ACID", definicion: "Propiedades de bases de datos relacionales: Atomicidad, Consistencia, Aislamiento, Durabilidad." },
+      { termino: "RAID", definicion: "Conjunto de discos que combinan redundancia y/o rendimiento." },
+      { termino: "CAP", definicion: "Teorema que afirma que en un sistema distribuido solo se cumplen 2 de 3: Consistencia, Disponibilidad, Tolerancia a particiones." },
+      { termino: "Throughput", definicion: "Cantidad de datos procesados en un tiempo dado." },
+      { termino: "Durabilidad", definicion: "Capacidad de un sistema para preservar los datos a lo largo del tiempo." }
+    ];
+
+    const preguntas = [
+      {
+        pregunta: "¿Qué tipo de almacenamiento es volátil y se borra al apagar el equipo?",
+        opciones: ["HDD", "SSD NVMe", "RAM", "Cinta"],
+        correcta: "RAM"
+      },
+      {
+        pregunta: "¿Qué modelo de almacenamiento en nube se usa para datos no estructurados como imágenes y videos?",
+        opciones: ["Bloque", "Objeto", "Base de datos relacional", "SAN"],
+        correcta: "Objeto"
+      },
+      {
+        pregunta: "¿Qué propiedad del teorema CAP no puede cumplirse junto con las otras dos al mismo tiempo?",
+        opciones: ["Consistencia", "Disponibilidad", "Tolerancia a particiones", "Solo dos pueden cumplirse"],
+        correcta: "Solo dos pueden cumplirse"
+      }
+    ];
+
+    // ==============================
+    // Funciones de renderizado
+    // ==============================
+    const cardsContainer = document.getElementById("cardsContainer");
+    const tabla = document.getElementById("tablaComparativa");
+    const filterInput = document.getElementById("filterInput");
+    const glosarioList = document.getElementById("glosarioList");
+    const quizContainer = document.getElementById("quizContainer");
+
+    function renderCards(list) {
+      cardsContainer.innerHTML = "";
+      list.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "bg-white rounded-2xl shadow p-4";
+        card.innerHTML = `
+          <h3 class="font-bold text-lg">${item.tipo}</h3>
+          <p class="text-sm mb-2">${item.desc}</p>
+          <ul class="text-xs space-y-1">
+            <li><b>Uso:</b> ${item.uso}</li>
+            <li><b>Ejemplos:</b> ${item.ejemplos}</li>
+            <li><b>Latencia:</b> ${item.latencia}</li>
+            <li><b>Rendimiento:</b> ${item.rendimiento}</li>
+            <li><b>Durabilidad:</b> ${item.durabilidad}</li>
+            <li><b>Escalabilidad:</b> ${item.escalabilidad}</li>
+            <li><b>Coste:</b> ${item.coste}</li>
+          </ul>
+        `;
+        cardsContainer.appendChild(card);
+      });
+    }
+
+    function renderTabla(list) {
+      tabla.innerHTML = `
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="border px-4 py-2">Tipo</th>
+            <th class="border px-4 py-2">Uso</th>
+            <th class="border px-4 py-2">Latencia</th>
+            <th class="border px-4 py-2">Rendimiento</th>
+            <th class="border px-4 py-2">Durabilidad</th>
+            <th class="border px-4 py-2">Escalabilidad</th>
+            <th class="border px-4 py-2">Coste</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${list.map(item => `
+            <tr>
+              <td class="border px-4 py-2">${item.tipo}</td>
+              <td class="border px-4 py-2">${item.uso}</td>
+              <td class="border px-4 py-2">${item.latencia}</td>
+              <td class="border px-4 py-2">${item.rendimiento}</td>
+              <td class="border px-4 py-2">${item.durabilidad}</td>
+              <td class="border px-4 py-2">${item.escalabilidad}</td>
+              <td class="border px-4 py-2">${item.coste}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      `;
+    }
+
+    function renderGlosario(list) {
+      glosarioList.innerHTML = "";
+      list.forEach(entry => {
+        const li = document.createElement("li");
+        li.innerHTML = `<b>${entry.termino}:</b> ${entry.definicion}`;
+        glosarioList.appendChild(li);
+      });
+    }
+
+    function renderQuiz(list) {
+      quizContainer.innerHTML = "";
+      list.forEach((q, index) => {
+        const div = document.createElement("div");
+        div.className = "p-4 bg-white rounded-2xl shadow";
+        div.innerHTML = `
+          <p class="font-medium mb-2">${q.pregunta}</p>
+          ${q.opciones.map(opt => `
+            <label class="block">
+              <input type="radio" name="q${index}" value="${opt}" class="mr-2">
+              ${opt}
+            </label>
+          `).join("")}
+          <button class="mt-2 px-3 py-1 bg-blue-500 text-white rounded check-btn">Comprobar</button>
+          <p class="mt-2 text-sm result"></p>
+        `;
+        quizContainer.appendChild(div);
+
+        const button = div.querySelector(".check-btn");
+        const result = div.querySelector(".result");
+        button.addEventListener("click", () => {
+          const selected = div.querySelector(`input[name="q${index}"]:checked`);
+          if (!selected
+
+
