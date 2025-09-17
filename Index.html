@@ -285,6 +285,45 @@
         const result = div.querySelector(".result");
         button.addEventListener("click", () => {
           const selected = div.querySelector(`input[name="q${index}"]:checked`);
-          if (!selected
+          if (!selected) {
+            result.textContent = "Selecciona una respuesta.";
+            result.className = "mt-2 text-sm text-gray-600";
+            return;
+          }
+          if (selected.value === q.correcta) {
+            result.textContent = "✅ Correcto";
+            result.className = "mt-2 text-sm text-green-600";
+          } else {
+            result.textContent = "❌ Incorrecto. Respuesta: " + q.correcta;
+            result.className = "mt-2 text-sm text-red-600";
+          }
+        });
+      });
+    }
+
+    function applyFilter() {
+      const value = filterInput.value.toLowerCase();
+      const filtered = items.filter(item =>
+        item.tipo.toLowerCase().includes(value) ||
+        item.uso.toLowerCase().includes(value)
+      );
+      renderCards(filtered);
+      renderTabla(filtered);
+    }
+
+    // ==============================
+    // Inicialización
+    // ==============================
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCards(items);
+      renderTabla(items);
+      renderGlosario(glosario);
+      renderQuiz(preguntas);
+      filterInput.addEventListener("input", applyFilter);
+    });
+  </script>
+</body>
+</html>
+
 
 
